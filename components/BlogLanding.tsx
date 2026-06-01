@@ -3,6 +3,29 @@ import Link from "next/link";
 import { formatBlogDate, getBlogs, getReadingTime, getSiteUrl, getSortableDate, type BlogPost } from "@/lib/upliftai";
 import styles from "./BlogLanding.module.css";
 
+const topics = [
+  {
+    title: "Buy & Sell",
+    text: "Practical tips for finding deals, pricing items, and making safer local exchanges."
+  },
+  {
+    title: "Real Estate",
+    text: "Guides for rentals, roommates, neighbourhood moves, and Telugu-friendly housing searches."
+  },
+  {
+    title: "Services",
+    text: "Notes for choosing local service providers and understanding common community needs."
+  },
+  {
+    title: "Jobs",
+    text: "Career reads, newcomer context, and hiring updates shaped for Telugu professionals."
+  },
+  {
+    title: "Events",
+    text: "Community updates for cultural gatherings, meetups, and local Telugu celebrations."
+  }
+];
+
 function getInitials(title: string) {
   return title
     .split(/\s+/)
@@ -49,6 +72,7 @@ export default async function BlogLanding() {
   const posts = [...(result.data?.blogs || [])].sort((a, b) => getSortableDate(b).localeCompare(getSortableDate(a)));
   const featured = posts[0];
   const latest = posts.slice(1);
+  const visiblePosts = latest.length ? latest : posts;
 
   return (
     <main className={styles.page}>
@@ -62,12 +86,17 @@ export default async function BlogLanding() {
       <header className={styles.topbar}>
         <div className="container">
           <Link href="/" className={styles.brand} aria-label="Canada Telugu Classifieds Blog home">
-            <span className={styles.brandMark}>CT</span>
+            <span className={styles.brandMark}>CTC</span>
             <span>
-              <strong>Canada Telugu</strong>
-              <small>Classifieds Blog</small>
+              <strong>Canada Telugu Classifieds</strong>
+              <small>మన కమ్యూనిటీ మన ప్లాట్‌ఫామ్</small>
             </span>
           </Link>
+          <nav className={styles.nav} aria-label="Blog sections">
+            <a href="#topics">Topics</a>
+            <a href="#latest">Latest</a>
+            <a href="https://canadateluguclassifieds.com/">Classifieds</a>
+          </nav>
         </div>
       </header>
 
@@ -76,11 +105,37 @@ export default async function BlogLanding() {
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>Canada Telugu Classifieds Blog</p>
-              <h1>Community guides for Telugu classifieds, local services, and trusted deals in Canada</h1>
+              <h1>Fresh reads for Telugu life, local listings, and community decisions in Canada</h1>
               <p>
-                Buying guides, seller safety tips, local service notes, and marketplace advice shaped around the Canada Telugu Classifieds community.
+                Helpful stories for buying, selling, renting, hiring, finding services, and staying connected with the Telugu community across Canada.
               </p>
+              <div className={styles.heroActions}>
+                <a href="#latest">Read latest articles</a>
+                <a href="https://canadateluguclassifieds.com/">Visit classifieds</a>
+              </div>
             </div>
+            <div className={styles.heroPanel} aria-label="Community blog focus">
+              <span>For the Telugu community</span>
+              <strong>Guides before you post, search, move, hire, or attend.</strong>
+              <p>Built as a focused blog home for Canada Telugu Classifieds readers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.topicBand} id="topics">
+        <div className="container">
+          <div className={styles.sectionIntro}>
+            <p className={styles.eyebrow}>Community Topics</p>
+            <h2>Blog guidance around the classifieds people actually use</h2>
+          </div>
+          <div className={styles.topicGrid}>
+            {topics.map((topic) => (
+              <article className={styles.topic} key={topic.title}>
+                <h3>{topic.title}</h3>
+                <p>{topic.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -130,15 +185,15 @@ export default async function BlogLanding() {
             )}
 
             <section className={styles.latest}>
-              <div className={styles.sectionHead}>
+              <div className={styles.sectionHead} id="latest">
                 <div>
-                  <p className={styles.eyebrow}>Latest Telugu Classifieds Articles</p>
-                  <h2>Fresh community and marketplace updates</h2>
+                  <p className={styles.eyebrow}>Latest Articles</p>
+                  <h2>New reads from the Canada Telugu Classifieds blog</h2>
                 </div>
               </div>
 
               <div className={styles.grid}>
-                {(latest.length ? latest : posts).map((post) => (
+                {visiblePosts.map((post) => (
                   <article className={styles.card} key={post.id}>
                     <Link href={`/blog/${post.slug}`} className={styles.cardImage} aria-label={post.title}>
                       {post.featuredImage ? (
@@ -165,6 +220,13 @@ export default async function BlogLanding() {
           </>
         )}
       </div>
+
+      <footer className={styles.footer}>
+        <div className="container">
+          <p>Canada Telugu Classifieds Blog</p>
+          <span>మన కమ్యూనిటీ మన ప్లాట్‌ఫామ్</span>
+        </div>
+      </footer>
     </main>
   );
 }

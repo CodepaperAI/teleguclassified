@@ -27,7 +27,7 @@
 }
 
 .categories span {
-  background: rgba(25, 163, 143, 0.1);
+  background: rgba(22, 163, 74, 0.1);
   border-radius: 999px;
   color: var(--primary-dark);
   font-size: 0.74rem;
@@ -60,7 +60,7 @@
 
 .imageWrap {
   aspect-ratio: 16 / 9;
-  background: #d9f2ee;
+  background: #dcfce7;
   border-radius: 8px;
   margin-bottom: 34px;
   overflow: hidden;

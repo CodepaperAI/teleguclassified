@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: "Canada Telugu Classifieds Blog",
     template: "%s | Canada Telugu Classifieds Blog"
   },
-  description: "Guides, community updates, and marketplace advice for Telugu life in Canada."
+  description: "Fresh blog guides for Telugu classifieds, local listings, services, jobs, events, and community life in Canada."
 };
 
 export default function RootLayout({

@@ -6,13 +6,13 @@ export const revalidate = 900;
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Latest Canada Telugu Classifieds blog articles and community guides.",
+  description: "Latest Canada Telugu Classifieds blog articles for listings, local services, jobs, events, and Telugu community life.",
   alternates: {
     canonical: `${getSiteUrl()}/blog`
   },
   openGraph: {
     title: "Blog | Canada Telugu Classifieds",
-    description: "Latest Canada Telugu Classifieds blog articles and community guides.",
+    description: "Latest Canada Telugu Classifieds blog articles for listings, local services, jobs, events, and Telugu community life.",
     url: `${getSiteUrl()}/blog`,
     type: "website"
   }
