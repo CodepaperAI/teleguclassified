@@ -13,6 +13,13 @@ This live site should stay aligned with Canada Telugu Classifieds:
 - Do not show backend implementation details, feed counters, API names, or dashboard-style integration language in the public UI.
 - Keep the layout clean, practical, and community-marketplace focused. This project is only for the blog landing page and blog article pages.
 
+## Hero Assets
+
+The hero section uses local assets fetched from the live Canada Telugu Classifieds site:
+
+- `public/logo.png` from `https://canadateluguclassifieds.com/logo.png`
+- `public/hero-bg.png` from `https://canadateluguclassifieds.com/hero-bg.png`
+
 ## Environment
 
 ```bash

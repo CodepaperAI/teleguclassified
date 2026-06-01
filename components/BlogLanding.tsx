@@ -6,22 +6,27 @@ import styles from "./BlogLanding.module.css";
 const topics = [
   {
     title: "Buy & Sell",
+    icon: "B/S",
     text: "Practical tips for finding deals, pricing items, and making safer local exchanges."
   },
   {
     title: "Real Estate",
+    icon: "RE",
     text: "Guides for rentals, roommates, neighbourhood moves, and Telugu-friendly housing searches."
   },
   {
     title: "Services",
+    icon: "SV",
     text: "Notes for choosing local service providers and understanding common community needs."
   },
   {
     title: "Jobs",
+    icon: "JB",
     text: "Career reads, newcomer context, and hiring updates shaped for Telugu professionals."
   },
   {
     title: "Events",
+    icon: "EV",
     text: "Community updates for cultural gatherings, meetups, and local Telugu celebrations."
   }
 ];
@@ -86,7 +91,9 @@ export default async function BlogLanding() {
       <header className={styles.topbar}>
         <div className="container">
           <Link href="/" className={styles.brand} aria-label="Canada Telugu Classifieds Blog home">
-            <span className={styles.brandMark}>CTC</span>
+            <span className={styles.brandMark}>
+              <Image src="/logo.png" alt="" width={44} height={44} priority />
+            </span>
             <span>
               <strong>Canada Telugu Classifieds</strong>
               <small>మన కమ్యూనిటీ మన ప్లాట్‌ఫామ్</small>
@@ -115,9 +122,29 @@ export default async function BlogLanding() {
               </div>
             </div>
             <div className={styles.heroPanel} aria-label="Community blog focus">
-              <span>For the Telugu community</span>
-              <strong>Guides before you post, search, move, hire, or attend.</strong>
-              <p>Built as a focused blog home for Canada Telugu Classifieds readers.</p>
+              <div className={styles.heroPhoto}>
+                <Image
+                  src="/hero-bg.png"
+                  alt="Toronto skyline banner from Canada Telugu Classifieds"
+                  fill
+                  sizes="(max-width: 1020px) 100vw, 440px"
+                  priority
+                />
+              </div>
+              <div className={styles.heroBadge}>
+                <span className={styles.badgeIcon} aria-hidden="true">
+                  <Image src="/logo.png" alt="" width={34} height={34} />
+                </span>
+                <span>
+                  <strong>Trusted local reads</strong>
+                  <small>Listings, homes, jobs, services</small>
+                </span>
+              </div>
+              <div className={styles.heroChips} aria-label="Blog guide categories">
+                <span>Listings</span>
+                <span>Housing</span>
+                <span>Jobs</span>
+              </div>
             </div>
           </div>
         </div>
@@ -132,6 +159,7 @@ export default async function BlogLanding() {
           <div className={styles.topicGrid}>
             {topics.map((topic) => (
               <article className={styles.topic} key={topic.title}>
+                <span className={styles.topicIcon} aria-hidden="true">{topic.icon}</span>
                 <h3>{topic.title}</h3>
                 <p>{topic.text}</p>
               </article>
