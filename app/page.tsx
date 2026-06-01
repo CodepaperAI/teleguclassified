@@ -1,20 +1,23 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import CategoryShortcuts from "@/components/CategoryShortcuts";
-import FeaturedListings from "@/components/FeaturedListings";
-import MainFeed from "@/components/MainFeed";
-import Footer from "@/components/Footer";
-import MobileSearch from "@/components/MobileSearch";
+import type { Metadata } from "next";
+import BlogLanding from "@/components/BlogLanding";
+import { getSiteUrl } from "@/lib/upliftai";
 
-export default function Home() {
-  return (
-    <main>
-      <div className="mobile-only">
-        <MobileSearch />
-      </div>
-      <Hero />
-      <CategoryShortcuts />
-      <MainFeed />
-    </main>
-  );
+export const revalidate = 900;
+
+export const metadata: Metadata = {
+  title: "Canada Telugu Classifieds Blog",
+  description: "Guides, safety tips, and community updates for Telugu life in Canada.",
+  alternates: {
+    canonical: getSiteUrl()
+  },
+  openGraph: {
+    title: "Canada Telugu Classifieds Blog",
+    description: "Guides, safety tips, and community updates for Telugu life in Canada.",
+    url: getSiteUrl(),
+    type: "website"
+  }
+};
+
+export default function HomePage() {
+  return <BlogLanding />;
 }

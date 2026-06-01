@@ -1,0 +1,142 @@
+.page {
+  min-height: 100vh;
+  padding: 42px 0 82px;
+}
+
+.backLink {
+  color: var(--primary);
+  display: inline-flex;
+  font-weight: 800;
+  margin-bottom: 26px;
+}
+
+.article {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.categories span {
+  background: rgba(25, 163, 143, 0.1);
+  border-radius: 999px;
+  color: var(--primary-dark);
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 6px 10px;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  line-height: 1;
+  margin: 0 0 18px;
+}
+
+.header > p {
+  color: #52606d;
+  font-size: 1.12rem;
+  line-height: 1.75;
+  margin: 0 0 22px;
+}
+
+.meta {
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.imageWrap {
+  aspect-ratio: 16 / 9;
+  background: #d9f2ee;
+  border-radius: 8px;
+  margin-bottom: 34px;
+  overflow: hidden;
+  position: relative;
+}
+
+.imageWrap img {
+  object-fit: cover;
+}
+
+.content {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 16px 38px rgba(16, 24, 40, 0.07);
+  color: #344054;
+  font-size: 1.04rem;
+  line-height: 1.82;
+  padding: 42px;
+}
+
+.content :global(h1),
+.content :global(h2),
+.content :global(h3) {
+  color: var(--ink);
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  margin: 2rem 0 0.85rem;
+}
+
+.content :global(p:first-child),
+.content :global(h1:first-child),
+.content :global(h2:first-child),
+.content :global(h3:first-child) {
+  margin-top: 0;
+}
+
+.content :global(p) {
+  margin: 0 0 1.1rem;
+}
+
+.content :global(a) {
+  color: var(--primary);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.content :global(ul),
+.content :global(ol) {
+  margin: 1rem 0 1.2rem 1.3rem;
+}
+
+.content :global(li) {
+  margin-bottom: 0.5rem;
+}
+
+.content :global(img) {
+  border-radius: 8px;
+  height: auto;
+  max-width: 100%;
+}
+
+.emptyState {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 36px;
+}
+
+@media (max-width: 700px) {
+  .header h1 {
+    font-size: 2.35rem;
+  }
+
+  .content {
+    padding: 24px 18px;
+  }
+}

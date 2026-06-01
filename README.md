@@ -1,44 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Canada Telugu Classifieds Blog Landing Page
 
-## Getting Started
+Standalone Next.js blog landing page powered by the Uplift AI publishing API.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The blog feed is fetched on the server for SEO. Crawlers receive rendered titles, excerpts, publish dates, article links, and metadata in the HTML. The Uplift token is server-only and must not use a `NEXT_PUBLIC_` prefix.
 
 ## Environment
 
-The blog pages use Uplift AI on the server side. Add the token locally and in your hosting provider:
-
 ```bash
-UPLIFTAI_API_TOKEN=your_uplift_token
+UPLIFTAI_API_TOKEN=your_upliftai_api_token
+SITE_URL=https://your-domain.com
 ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`SITE_URL` is optional for local development, but should be set in production for canonical and Open Graph URLs.
 
-## Learn More
+## Development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Production
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm run start
+```
