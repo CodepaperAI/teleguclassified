@@ -49,7 +49,6 @@ export default async function BlogLanding() {
   const posts = [...(result.data?.blogs || [])].sort((a, b) => getSortableDate(b).localeCompare(getSortableDate(a)));
   const featured = posts[0];
   const latest = posts.slice(1);
-  const total = result.data?.pagination.total || posts.length;
 
   return (
     <main className={styles.page}>
@@ -76,18 +75,12 @@ export default async function BlogLanding() {
         <div className="container">
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}>Community Blog</p>
-              <h1>Practical reads for Telugu life, local services, and trusted deals in Canada</h1>
+              <p className={styles.eyebrow}>Canada Telugu Classifieds Blog</p>
+              <h1>Community guides for Telugu classifieds, local services, and trusted deals in Canada</h1>
               <p>
-                Guides, safety tips, neighborhood notes, and marketplace advice published for the Telugu community across Canada.
+                Buying guides, seller safety tips, local service notes, and marketplace advice shaped around the Canada Telugu Classifieds community.
               </p>
             </div>
-            <aside className={styles.feedCard}>
-              <span>Server-rendered feed</span>
-              <strong>{total}</strong>
-              <p>published posts from Uplift AI</p>
-              {featured && <small>Latest: {publishedLabel(featured)}</small>}
-            </aside>
           </div>
         </div>
       </section>
@@ -96,12 +89,12 @@ export default async function BlogLanding() {
         {result.error ? (
           <section className={styles.emptyState}>
             <h2>Blog posts are unavailable</h2>
-            <p>The server could not load the publishing feed right now.</p>
+            <p>We could not load the latest Telugu Classifieds articles right now.</p>
           </section>
         ) : posts.length === 0 ? (
           <section className={styles.emptyState}>
             <h2>No posts yet</h2>
-            <p>Published posts will appear here automatically once they are available in Uplift AI.</p>
+            <p>Published Telugu Classifieds guides will appear here soon.</p>
           </section>
         ) : (
           <>
@@ -139,10 +132,9 @@ export default async function BlogLanding() {
             <section className={styles.latest}>
               <div className={styles.sectionHead}>
                 <div>
-                  <p className={styles.eyebrow}>Latest Articles</p>
-                  <h2>Fresh community updates</h2>
+                  <p className={styles.eyebrow}>Latest Telugu Classifieds Articles</p>
+                  <h2>Fresh community and marketplace updates</h2>
                 </div>
-                <span>{total} total posts</span>
               </div>
 
               <div className={styles.grid}>
