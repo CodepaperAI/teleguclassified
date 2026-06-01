@@ -1,0 +1,150 @@
+.wrapper {
+    margin-top: -50px;
+    margin-bottom: 40px;
+    /* Overlap with hero */
+    position: relative;
+    z-index: 10;
+}
+
+.sectionTitle {
+    display: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.card {
+    background: white;
+    padding: 12px 0;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    background: #f1f5f9;
+    color: var(--primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1e293b;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        margin-top: 20px;
+        padding: 0;
+        /* Remove padding to allow scroll edge-to-edge effect */
+    }
+
+    .sectionTitle {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0 20px 12px 20px;
+    }
+
+    .container {
+        padding: 0;
+        /* Align with edge */
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        padding: 0 10px 20px 10px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        border-radius: 12px;
+        margin-bottom: 4px;
+    }
+
+    .title {
+        font-size: 0.7rem;
+        font-weight: 500;
+        margin-top: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    .card {
+        padding: 5px 0;
+        min-width: 0;
+        width: 100%;
+        box-shadow: none;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Remove old nth-child overrides as we use inline styles now */
+    .icon {
+        width: 56px;
+        /* Larger for mobile */
+        height: 56px;
+        font-size: 1.5rem;
+        border-radius: 18px;
+        /* Rounded square */
+        margin-bottom: 8px;
+    }
+
+    .title {
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-top: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        color: #334155;
+    }
+
+    .card {
+        padding: 0;
+        min-width: 0;
+        width: 100%;
+        box-shadow: none;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

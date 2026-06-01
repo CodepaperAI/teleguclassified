@@ -1,0 +1,558 @@
+.chatRoomContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    border-left: 1px solid #e2e8f0;
+}
+
+.emptyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #f8fafc;
+    border-left: 1px solid #e2e8f0;
+    text-align: center;
+    padding: 20px;
+}
+
+.emptySelection {
+    color: #64748b;
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.emptySelection h2 {
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+/* Product Section (Left) */
+.productSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.productCard {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.productImage {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.productInfo {
+    padding: 20px;
+}
+
+.productPrice {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.productTitle {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sellerCard {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.sellerName {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.sellerStatus {
+    font-size: 0.85rem;
+    color: #22c55e;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Chat Section (Right) */
+.chatWindow {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chatHeader {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    z-index: 10;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.headerProduct {
+    flex-shrink: 0;
+    margin-left: 12px;
+}
+
+.backBtn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    margin-left: -8px;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.backBtn:hover {
+    background: #f1f5f9;
+}
+
+.backBtn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.headerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0; /* Important for flex child truncation */
+    flex: 1;
+}
+
+.chatHeaderTitle {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.nameText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.headerSubtitle {
+    font-size: 0.85rem;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.responseTime {
+    color: #64748b;
+    font-size: 0.8rem;
+}
+
+.chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.messageBubble {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.messageLeft {
+    align-self: flex-start;
+    background: #f1f5f9;
+    color: #1e293b;
+    border-bottom-left-radius: 4px;
+}
+
+.messageRight {
+    align-self: flex-end;
+    background: #22c55e;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.messageTime {
+    font-size: 0.75rem;
+    margin-top: 4px;
+    display: block;
+    opacity: 0.7;
+}
+
+.chatInputArea {
+    padding: 20px 24px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.inputWrapper {
+    flex: 1;
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #f8fafc;
+}
+
+.input:focus {
+    border-color: #22c55e;
+    background: #fff;
+}
+
+.sendBtn {
+    background: #22c55e;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.sendBtn:hover {
+    transform: scale(1.05);
+    background: #16a34a;
+}
+
+.sendIcon {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+        height: calc(100vh - 70px);
+        /* Full height minus navbar */
+        margin-top: 0;
+        /* Remove any top margin */
+        overflow: hidden;
+        /* Prevent body scroll */
+    }
+
+    /* Hide sidebar on mobile */
+    .productSidebar {
+        display: none;
+    }
+
+    .chatWindow {
+        height: 100%;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Sticky Listing Header */
+    .mobileListingHeader {
+        flex-shrink: 0;
+        /* Don't shrink */
+        z-index: 10;
+        position: relative;
+    }
+
+    /* Sticky Chat Header */
+    .chatHeader {
+        flex-shrink: 0;
+        /* Don't shrink */
+        padding: 10px 16px;
+        background: #fff;
+        z-index: 9;
+    }
+
+    /* Scrollable Messages Area */
+    .chatMessages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+        gap: 12px;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scroll on iOS */
+    }
+
+    .messageBubble {
+        max-width: 85%;
+        font-size: 0.95rem;
+        padding: 10px 14px;
+    }
+
+    /* Sticky Input Area */
+    .chatInputArea {
+        flex-shrink: 0;
+        /* Don't shrink */
+        padding: 12px 15px;
+        gap: 8px;
+        border-top: 1px solid #f1f5f9;
+        background: #fff;
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+        /* Handle iPhone X+ safe area */
+    }
+
+    .input {
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+
+    .sendBtn {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Attachment Styles */
+.attachBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #64748b;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attachBtn:hover {
+    background: #f1f5f9;
+    color: var(--primary);
+}
+
+.attachIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.messageImageWrapper {
+    max-width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+.messageImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.messageImage:hover {
+    transform: scale(1.02);
+}
+
+.messageFile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.messageRight .messageFile {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.fileIcon {
+    font-size: 1.5rem;
+}
+
+.fileInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.fileName {
+    font-weight: 600;
+    font-size: 0.9rem;
+    word-break: break-all;
+}
+
+.fileSize {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* Spinner */
+.spinner-small {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Product Compact Bar */
+.productCompactBar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 24px;
+    background: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.compactThumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.compactInfo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.compactTitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.compactPrice {
+    font-size: 0.8rem;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.headerProductLink {
+    font-size: 0.85rem;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.headerProductLink:hover {
+    background: #f1f5f9;
+}
+
+@media (max-width: 900px) {
+    .chatRoomContent {
+        height: auto;
+        top: 0;
+        bottom: calc(65px + env(safe-area-inset-bottom));
+        width: 100vw;
+        position: fixed;
+        left: 0;
+        z-index: 1001;
+    }
+
+    .backBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chatMessages {
+        padding: 15px;
+        padding-bottom: 20px;
+        overscroll-behavior: contain;
+    }
+
+    .chatInputArea {
+        padding-bottom: max(15px, env(safe-area-inset-bottom));
+    }
+}

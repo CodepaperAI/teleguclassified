@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /login/
+Disallow: /dashboard/
+Disallow: /profile/
+
+Sitemap: https://canadateluguclassifieds.com/sitemap.xml

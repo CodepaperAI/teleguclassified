@@ -1,0 +1,107 @@
+.container {
+    padding: 0;
+}
+
+.addBtn {
+    background: #FF5A5F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+    float: right;
+}
+
+.addBtn:hover {
+    background: #e04f54;
+}
+
+.tableReflow {
+    overflow-x: auto;
+    clear: both;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.table th {
+    text-align: left;
+    padding: 12px 16px;
+    color: #64748b;
+    font-weight: 500;
+    border-bottom: 1px solid #e2e8f0;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.table td {
+    padding: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.description {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #64748b;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.actionBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+}
+
+.edit {
+    background-color: #3b82f6;
+    /* Blue for edit */
+}
+
+.edit:hover {
+    background-color: #2563eb;
+}
+
+.block {
+    background-color: #ef4444;
+    /* Red for block/deactivate */
+}
+
+.block:hover {
+    background-color: #dc2626;
+}
+
+.activate {
+    background-color: #22c55e;
+    /* Green for activate */
+}
+
+.activate:hover {
+    background-color: #16a34a;
+}

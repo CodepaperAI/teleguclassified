@@ -1,0 +1,189 @@
+.footer {
+    background: white;
+    padding: 80px 0 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.column h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #1a1a1a;
+}
+
+.description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+}
+
+.socialIcon {
+    width: 32px;
+    height: 32px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #666;
+    transition: var(--transition);
+}
+
+.socialIcon:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.link {
+    color: #666;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.link:hover {
+    color: var(--primary);
+}
+
+.appLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.appButton {
+    background: #1a1a1a;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.appButton span {
+    font-size: 0.65rem;
+    display: block;
+}
+
+.appButton strong {
+    font-size: 0.9rem;
+    display: block;
+}
+
+.bottom {
+    border-top: 1px solid var(--border-color);
+    padding-top: 40px;
+    text-align: center;
+    color: #999;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        padding: 60px 20px 40px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 40px 20px 30px;
+        text-align: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+
+    .appLinks {
+        align-items: center;
+    }
+
+    .appButton {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+}
+
+.footerMinimized {
+    background: white;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.minimizedContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.followSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.followLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+}
+
+.minimizedSocials {
+    display: flex;
+    gap: 15px;
+}
+
+.minimizedLink {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.minimizedLink:hover {
+    color: var(--primary);
+}
+
+.copyright {
+    color: #999;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}

@@ -1,0 +1,110 @@
+.container {
+    padding: 1rem 0;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    marginBottom: 0.5rem;
+}
+
+.selectBtn {
+    padding: 0.4rem 0.8rem;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.selectBtn:hover {
+    background: #e5e7eb;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.selectedUserCard {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: #0369a1;
+}
+
+.userHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.changeUserBtn {
+    font-size: 0.75rem;
+    color: #0284c7;
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.inputGroup label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+    padding: 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+}
+
+.submitBtn {
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background: #059669;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submitBtn:hover {
+    background: #047857;
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

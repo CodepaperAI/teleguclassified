@@ -1,0 +1,1012 @@
+.page {
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    overflow-x: hidden; /* Always prevent horizontal overflow */
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding-top: 0.5rem;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2.5rem;
+    align-items: start;
+    min-width: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-columns: 1fr;
+        min-width: 0;
+    }
+
+    .sidebar {
+        position: static;
+    }
+}
+
+/* mainContent must never overflow the grid column */
+.mainContent {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        overflow-x: visible; /* Let gallery/thumbnails manage their own overflow */
+    }
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs {
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+        font-size: 0.8rem;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .breadcrumbs span:last-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 140px;
+        display: inline-block;
+        vertical-align: bottom;
+    }
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary);
+}
+
+/* Main Info Section */
+.infoSection {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.infoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .infoSection {
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .infoHeader {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .price {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        word-break: break-word;
+    }
+
+    .meta {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+
+    .meta span {
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    .actions {
+        flex-wrap: wrap;
+    }
+
+    .actionBtn {
+        flex: 1;
+        min-width: calc(50% - 0.5rem);
+        padding: 10px 16px;
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+
+    .detailsCard,
+    .descriptionCard,
+    .locationCard {
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .card {
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .btnSecondary {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .productTitle {
+        font-size: 1.5rem;
+        word-break: break-word;
+    }
+
+    .price {
+        font-size: 1.75rem;
+        word-break: break-word;
+    }
+
+    .meta {
+        gap: 0.75rem;
+    }
+
+    .actionBtn {
+        min-width: 100%;
+    }
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 12px 24px;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.actionBtn:hover {
+    background: white;
+    color: var(--primary);
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Gallery */
+.gallery {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        margin-bottom: 1rem;
+        border-radius: 0;
+        width: 100%;
+        max-width: 100%;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+        box-sizing: border-box;
+        /*
+         * CRITICAL: Do NOT set overflow:hidden here.
+         * overflow:hidden on a parent blocks touch-scroll of nested
+         * overflow:auto/scroll containers on iOS Safari.
+         * The page-level overflow-x:hidden is the safety net.
+         */
+        overflow: visible;
+    }
+}
+
+.mainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    max-height: 450px;
+}
+
+@media (max-width: 768px) {
+    .mainImage {
+        aspect-ratio: 16/9;
+        max-height: 240px;
+        object-fit: contain;
+        background: #000;
+        /* Clamp width so the main image never overflows */
+        width: 100%;
+        max-width: 100vw;
+        display: block;
+    }
+}
+
+.mainImageContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    max-height: 450px;
+    background: #f1f5f9;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .mainImageContainer {
+        aspect-ratio: 16/9;
+        max-height: 240px;
+    }
+}
+
+/*
+ * Thumbnail scroll strip.
+ * - overflow-x: scroll forces the strip to be its own scroll context.
+ * - max-width: 100% + box-sizing ensures it never grows wider than parent.
+ * - flex children are flex-shrink:0 so they keep their size.
+ * - The strip itself scrolls; the page does NOT scroll horizontally.
+ */
+.thumbnails {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 8px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    -webkit-overflow-scrolling: touch; /* Smooth iOS momentum scroll */
+    scroll-snap-type: x mandatory;
+}
+
+.thumbnails::-webkit-scrollbar {
+    display: none;
+}
+
+.thumbnail {
+    width: 90px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 2px solid transparent;
+    scroll-snap-align: start;
+}
+
+.thumbnail:hover,
+.activeThumb {
+    opacity: 1;
+    border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .thumbnail {
+        width: 80px;
+        height: 60px;
+    }
+}
+
+/* Details Card */
+.detailsCard {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.sectionHeading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.25rem;
+}
+
+@media (max-width: 480px) {
+    .detailsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+.detailItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detailLabel {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.detailValue {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 1.05rem;
+}
+
+/* Description Card */
+.descriptionCard {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.descriptionText {
+    line-height: 1.7;
+    color: #334155;
+    font-size: 1.05rem;
+}
+
+.preWrap {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.descriptionList {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.descriptionList li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.descriptionList li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+    position: sticky;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.performanceWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.sidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebarHeader h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.refreshBtn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.sidebarStats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sidebarStatItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #f1f5f9;
+}
+
+.statContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.statValue {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
+.statLabel {
+    font-size: 0.7rem;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+.sidebarDivider {
+    width: 100%;
+    margin: 1rem 0;
+    height: 1px;
+    background: #f1f5f9;
+    border: none;
+}
+
+.boostSection {
+    margin-top: 0.25rem;
+}
+
+.activeBoostBadgeSidebar {
+    background: #ecfdf5;
+    color: #059669;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid #d1fae5;
+}
+
+.sidebarBoostBtn {
+    width: 100%;
+    background: #10b981;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sellerProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 4px solid white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.sellerInfo h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.responseTime {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--secondary);
+}
+
+.btnPrimary {
+    background: var(--primary);
+    color: white;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px rgba(var(--primary-rgb), 0.2);
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+.btnSecondary {
+    background: white;
+    color: #1e293b;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border: 2px solid #e2e8f0;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Safety Tips */
+.safetyTips h3 {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.tipsList {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.readMore {
+    display: block;
+    text-align: center;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.reportAd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    margin-top: 1rem;
+}
+
+/* Location Card */
+.locationCard {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.mapPlaceholder {
+    width: 100%;
+    height: 300px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mapImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mapOverlay {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+}
+
+/* Similar Listings */
+.similarSection {
+    margin-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+.similarGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .similarGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/* Modal Styling */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.modal p {
+    color: #64748b;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.planList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.planCard {
+    padding: 1.25rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.planCard:hover {
+    border-color: #3b82f6;
+    background: #f0f7ff;
+}
+
+.planCard.selected {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.planInfo h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.planPrice {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+.modalActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.cancelBtn,
+.checkoutBtn {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cancelBtn {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+}
+
+.checkoutBtn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+}
+
+.checkoutBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+    .modal {
+        padding: 1.5rem;
+    }
+
+    .modal h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Sticky Contact Bar for Mobile */
+.stickyContactBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 0.75rem 1rem;
+    display: none;
+    gap: 0.75rem;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-top: 1px solid #e2e8f0;
+}
+
+@media (max-width: 768px) {
+    .stickyContactBar {
+        display: flex;
+        bottom: 95px; /* Increased clearance for BottomNav FAB */
+        padding-bottom: 0.75rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+    }
+    
+    .page {
+        padding-bottom: 180px; /* Increased for higher sticky bar */
+    }
+}
+
+.stickyBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.1s active;
+}
+
+.stickyBtn:active {
+    transform: scale(0.98);
+}
+
+.stickyPrimary {
+    background: var(--primary);
+    color: white;
+}
+
+.stickySecondary {
+    background: white;
+    color: #1e293b;
+    border: 2px solid #e2e8f0;
+}
+
+/* ── Page-level loading skeleton ──────────────────────────── */
+@keyframes shimmer {
+    0%   { background-position: -600px 0; }
+    100% { background-position: 600px 0; }
+}
+
+.loadingSkeleton {
+    padding-top: 1rem;
+}
+
+.skeletonProgressBar {
+    width: 100%;
+    height: 3px;
+    background: #e9ecef;
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 28px;
+}
+
+.skeletonProgressFill {
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(90deg, var(--primary, #e63325), #ff6b5b);
+    border-radius: 99px;
+    animation: progressSlide 1.4s ease-in-out infinite;
+}
+
+@keyframes progressSlide {
+    0%   { transform: translateX(-100%); }
+    60%  { transform: translateX(250%); }
+    100% { transform: translateX(250%); }
+}
+
+.skeletonLayout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 28px;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .skeletonLayout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skeletonMain {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skeletonImageBlock {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 1.4s infinite linear;
+}
+
+.skeletonInfoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 4px 0;
+}
+
+.skeletonSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skeletonLine {
+    height: 14px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 1.4s infinite linear;
+}
+

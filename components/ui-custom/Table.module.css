@@ -1,0 +1,58 @@
+.container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    caption-side: bottom;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    /* 14px */
+}
+
+.header {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.body {
+    /*  */
+}
+
+.row {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.row:hover {
+    background-color: #f8fafc;
+    /* Slight gray on hover */
+}
+
+.headCell {
+    height: 48px;
+    padding: 0 16px;
+    /* px-4 */
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 500;
+    color: #64748b;
+    /* Slate 500 */
+    background-color: #f8fafc;
+    /* Optional: light header bg */
+}
+
+.cell {
+    padding: 16px;
+    /* p-4 - increased padding for "spacious" look */
+    vertical-align: middle;
+    color: #334155;
+    /* Slate 700 */
+}
+
+/* Hide table on very small screens if we want to force card view, 
+   but usually handled by parent page CSS media queries */
