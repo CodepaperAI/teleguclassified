@@ -46,7 +46,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       images: post.featuredImage ? [{ url: post.featuredImage }] : undefined,
       publishedTime: post.publishDate || undefined,
       modifiedTime: post.updatedAt || post.publishDate || undefined,
-      authors: post.authorName ? [post.authorName] : undefined,
       tags: post.meta?.articleTags || post.tags || undefined
     }
   };
@@ -76,6 +75,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const date = formatBlogDate(post);
   const readingTime = getReadingTime(post);
   const articleUrl = `${getSiteUrl()}/blog/${post.slug}`;
+  const publisher = {
+    "@type": "Organization",
+    name: "Canada Telugu Classifieds",
+    url: getSiteUrl(),
+    logo: `${getSiteUrl()}/logo.png`
+  };
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -85,13 +90,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     image: post.featuredImage || undefined,
     datePublished: post.publishDate || post.createdAt || undefined,
     dateModified: post.updatedAt || post.publishDate || undefined,
-    author: post.authorName
-      ? {
-          "@type": "Person",
-          name: post.authorName,
-          url: post.authorUrl || undefined
-        }
-      : undefined
+    author: publisher,
+    publisher
   };
 
   return (
@@ -120,7 +120,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className={styles.meta}>
               {date && <span>Published {date}</span>}
               {readingTime && <span>{readingTime}</span>}
-              {post.authorName && <span>{post.authorName}</span>}
             </div>
           </header>
 

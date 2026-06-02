@@ -47,25 +47,27 @@ function publishedLabel(post: BlogPost) {
 
 function blogJsonLd(posts: BlogPost[]) {
   const siteUrl = getSiteUrl();
+  const publisher = {
+    "@type": "Organization",
+    name: "Canada Telugu Classifieds",
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`
+  };
 
   return {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "Canada Telugu Classifieds Blog",
     url: siteUrl,
+    publisher,
     blogPost: posts.slice(0, 12).map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
       url: `${siteUrl}/blog/${post.slug}`,
       datePublished: post.publishDate || post.createdAt || undefined,
       dateModified: post.updatedAt || post.publishDate || undefined,
-      author: post.authorName
-        ? {
-            "@type": "Person",
-            name: post.authorName,
-            url: post.authorUrl || undefined
-          }
-        : undefined,
+      author: publisher,
+      publisher,
       image: post.featuredImage || undefined,
       description: post.excerpt || undefined
     }))
@@ -202,7 +204,6 @@ export default async function BlogLanding() {
                   <div className={styles.meta}>
                     <span>{publishedLabel(featured)}</span>
                     {getReadingTime(featured) && <span>{getReadingTime(featured)}</span>}
-                    {featured.authorName && <span>{featured.authorName}</span>}
                   </div>
                   <Link href={`/blog/${featured.slug}`} className={styles.readLink}>
                     Read article
